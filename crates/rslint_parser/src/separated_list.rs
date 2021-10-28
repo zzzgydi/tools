@@ -16,12 +16,12 @@ impl<L: Language> SyntaxSeparatedElement<L> {
 }
 
 #[derive(Debug, Clone)]
-pub struct SyntaxSeparatedChildren<L: Language> {
+pub struct SyntaxSeparatedList<L: Language> {
 	raw: SyntaxNode<L>,
 	ph: PhantomData<L>,
 }
 
-impl<L: Language> SyntaxSeparatedChildren<L> {
+impl<L: Language> SyntaxSeparatedList<L> {
 	pub fn new(raw: SyntaxNode<L>) -> Self {
 		Self {
 			raw,
@@ -47,20 +47,20 @@ impl<L: Language> SyntaxSeparatedChildren<L> {
 	}
 
 	pub fn iter(&self) -> impl Iterator<Item = SyntaxSeparatedElement<L>> {
-		SyntaxSeparatedChildrenIterator {
+		SyntaxSeparatedListIterator {
 			inner: self.raw.children_with_tokens(),
 			ph: PhantomData,
 		}
 	}
 }
 
-struct SyntaxSeparatedChildrenIterator<I, L> {
+struct SyntaxSeparatedListIterator<I, L> {
 	inner: I,
 	ph: PhantomData<L>,
 }
 
 impl<L: Language, I: Iterator<Item = SyntaxElement<L>>> Iterator
-	for SyntaxSeparatedChildrenIterator<I, L>
+	for SyntaxSeparatedListIterator<I, L>
 {
 	type Item = SyntaxSeparatedElement<L>;
 
@@ -93,15 +93,15 @@ impl<N: AstNode> AstSeparatedElement<N> {
 }
 
 #[derive(Debug, Clone)]
-pub struct AstSeparatedChildren<N> {
-	inner: SyntaxSeparatedChildren<JsLanguage>,
+pub struct AstSeparatedList<N> {
+	inner: SyntaxSeparatedList<JsLanguage>,
 	ph: PhantomData<N>,
 }
 
-impl<N: AstNode> AstSeparatedChildren<N> {
+impl<N: AstNode> AstSeparatedList<N> {
 	pub fn new(raw: crate::SyntaxNode) -> Self {
 		Self {
-			inner: SyntaxSeparatedChildren::new(raw),
+			inner: SyntaxSeparatedList::new(raw),
 			ph: PhantomData,
 		}
 	}
@@ -136,7 +136,7 @@ impl<N: AstNode> AstSeparatedChildren<N> {
 
 #[cfg(test)]
 mod tests {
-	use crate::separated_children::{SyntaxSeparatedChildren, SyntaxSeparatedElement};
+	use crate::separated_list::{SyntaxSeparatedElement, SyntaxSeparatedList};
 	use crate::{GreenNode, JsLanguage, SyntaxKind};
 	use rome_rowan::{GreenToken, NodeOrToken, SyntaxNode};
 
@@ -148,7 +148,7 @@ mod tests {
 		GreenToken::new(rome_rowan::SyntaxKind(kind.into()), text)
 	}
 
-	fn create_separated_list(elements: Vec<Option<i32>>) -> SyntaxSeparatedChildren<JsLanguage> {
+	fn create_separated_list(elements: Vec<Option<i32>>) -> SyntaxSeparatedList<JsLanguage> {
 		let mut children: Vec<NodeOrToken<GreenNode, GreenToken>> = Vec::new();
 
 		for (index, element) in elements.iter().enumerate() {
@@ -170,7 +170,7 @@ mod tests {
 		let list_root =
 			SyntaxNode::<JsLanguage>::new_root(new_node(SyntaxKind::ARG_LIST, children));
 
-		SyntaxSeparatedChildren::new(list_root)
+		SyntaxSeparatedList::new(list_root)
 	}
 
 	fn assert_nodes<T: Iterator<Item = Option<SyntaxNode<JsLanguage>>>>(

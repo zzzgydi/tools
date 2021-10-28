@@ -1,6 +1,6 @@
 //! Extensions for things which are not easily generated in ast expr nodes
 
-use crate::separated_children::AstSeparatedChildren;
+use crate::separated_list::AstSeparatedList;
 use crate::{ast::*, numbers::*, util::*, SyntaxText, TextRange, TextSize, TokenSet, T};
 use SyntaxKind::*;
 
@@ -460,13 +460,13 @@ impl ExprOrSpread {
 }
 
 impl ObjectExpr {
-	pub fn props(&self) -> AstSeparatedChildren<ObjectProp> {
+	pub fn props(&self) -> AstSeparatedList<ObjectProp> {
 		let children = self.syntax().children_with_tokens().filter(|element| {
 			element.text_range().start() >= self.l_curly_token().unwrap().text_range().end()
 				&& element.text_range().end() <= self.r_curly_token().unwrap().text_range().start()
 		});
 
-		AstSeparatedChildren::new(self.syntax().clone())
+		AstSeparatedList::new(self.syntax().clone())
 
 		// self.syntax().child_with_ast::<Stmt>().filter(|cons| {
 		// 	cons.syntax().text_range().start()

@@ -73,7 +73,7 @@ mod tests;
 
 #[macro_use]
 pub mod ast;
-mod separated_children;
+mod separated_list;
 pub mod syntax;
 pub mod util;
 
