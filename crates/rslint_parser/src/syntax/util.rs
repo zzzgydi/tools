@@ -266,18 +266,9 @@ pub fn check_for_stmt_lhs(p: &mut Parser, expr: Expr, marker: &CompletedMarker) 
 			}
 		}
 		Expr::ObjectExpr(expr) => {
-			if expr.has_trailing_comma() {
+			if let Some(trailing_coma) = expr.props().trailing_separator() {
 				// Untyped node machine go brr
-				let comma_range = expr
-					.props()
-					.last()
-					.unwrap()
-					.syntax()
-					.next_sibling_or_token()
-					.unwrap()
-					.into_token()
-					.unwrap()
-					.text_range();
+				let comma_range = trailing_coma.text_range();
 				let err = p
 					.err_builder("Illegal trailing comma in assignment target")
 					.primary(comma_range, "");
@@ -285,20 +276,22 @@ pub fn check_for_stmt_lhs(p: &mut Parser, expr: Expr, marker: &CompletedMarker) 
 				p.error(err);
 			}
 
-			for (idx, prop) in expr.props().enumerate() {
+			for (idx, prop) in expr.props().nodes().enumerate() {
 				match prop {
-					ast::ObjectProp::LiteralProp(prop) => {
+					Some(ast::ObjectProp::LiteralProp(prop)) => {
 						if let Some(expr) = prop.value() {
 							check_for_stmt_lhs(p, expr, marker);
 						}
 					}
-					ast::ObjectProp::SpreadProp(prop) if idx != expr.props().count() - 1 => {
+					Some(ast::ObjectProp::SpreadProp(prop))
+						if idx != expr.props().nodes().count() - 1 =>
+					{
 						if let Some(lhs) = prop.value() {
 							check_spread_element(p, lhs, marker);
 						}
 					}
-					ast::ObjectProp::InitializedProp(_) => {}
-					_ => {
+					Some(ast::ObjectProp::InitializedProp(_)) | None => {}
+					Some(prop) => {
 						let err = p
 							.err_builder("Illegal object property in assignment target")
 							.primary(marker.offset_range(p, prop.syntax().trimmed_range()), "");

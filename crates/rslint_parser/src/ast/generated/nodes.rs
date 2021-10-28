@@ -984,7 +984,7 @@ impl ContinueStmt {
 	pub fn continue_token(&self) -> Option<SyntaxToken> {
 		support::token(&self.syntax, T![continue])
 	}
-	pub fn ident_token(&self) -> Option<NameRef> { support::child(&self.syntax) }
+	pub fn ident(&self) -> Option<NameRef> { support::child(&self.syntax) }
 	pub fn semicolon_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T ! [;]) }
 }
 #[doc = ""]
@@ -1184,7 +1184,6 @@ pub struct ObjectExpr {
 }
 impl ObjectExpr {
 	pub fn l_curly_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T!['{']) }
-	pub fn props(&self) -> AstChildren<ObjectProp> { support::children(&self.syntax) }
 	pub fn r_curly_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T!['}']) }
 }
 #[doc = ""]
@@ -1606,8 +1605,6 @@ impl ClassProp {
 	pub fn colon_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T ! [:]) }
 	pub fn ty(&self) -> Option<TsType> { support::child(&self.syntax) }
 	pub fn semicolon_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T ! [;]) }
-	pub fn eq(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T ! [=])}
-	pub fn value(&self) -> Option<Expr> { support::child(&self.syntax)}
 }
 #[doc = ""]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -1619,7 +1616,7 @@ impl Constructor {
 	pub fn accessibility(&self) -> Option<TsAccessibility> { support::child(&self.syntax) }
 	pub fn name(&self) -> Option<PropName> { support::child(&self.syntax) }
 	pub fn type_params(&self) -> Option<TsTypeParams> { support::child(&self.syntax) }
-	pub fn parameters(&self) -> Option<ParameterList> { support::child(&self.syntax) }
+	pub fn parameters(&self) -> Option<ConstructorParameters> { support::child(&self.syntax) }
 	pub fn body(&self) -> Option<BlockStmt> { support::child(&self.syntax) }
 }
 #[doc = ""]
@@ -1629,7 +1626,7 @@ pub struct ConstructorParameters {
 }
 impl ConstructorParameters {
 	pub fn l_paren_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T!['(']) }
-	pub fn parameters(&self) -> AstChildren<ConstructorParamOrPat> { support::children(&self.syntax) }
+	pub fn parameters(&self) -> Option<ConstructorParamOrPat> { support::child(&self.syntax) }
 	pub fn r_paren_token(&self) -> Option<SyntaxToken> { support::token(&self.syntax, T![')']) }
 }
 #[doc = ""]

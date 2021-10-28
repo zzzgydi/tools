@@ -1,5 +1,6 @@
 //! Extensions for things which are not easily generated in ast expr nodes
 
+use crate::separated_children::AstSeparatedChildren;
 use crate::{ast::*, numbers::*, util::*, SyntaxText, TextRange, TextSize, TokenSet, T};
 use SyntaxKind::*;
 
@@ -459,17 +460,25 @@ impl ExprOrSpread {
 }
 
 impl ObjectExpr {
+	pub fn props(&self) -> AstSeparatedChildren<ObjectProp> {
+		let children = self.syntax().children_with_tokens().filter(|element| {
+			element.text_range().start() >= self.l_curly_token().unwrap().text_range().end()
+				&& element.text_range().end() <= self.r_curly_token().unwrap().text_range().start()
+		});
+
+		AstSeparatedChildren::new(self.syntax().clone())
+
+		// self.syntax().child_with_ast::<Stmt>().filter(|cons| {
+		// 	cons.syntax().text_range().start()
+		// 		<= self
+		// 		.else_token()
+		// 		.map(|x| x.text_range().start())
+		// 		.unwrap_or_else(|| cons.syntax().text_range().start())
+		// })
+	}
+
 	pub fn has_trailing_comma(&self) -> bool {
-		if let Some(last) = self.props().last().map(|it| it.syntax().to_owned()) {
-			if let Some(tok) = last
-				.next_sibling_or_token()
-				.map(|it| it.into_token())
-				.flatten()
-			{
-				return tok.kind() == T![,];
-			}
-		}
-		false
+		self.props().has_trailing_separator()
 	}
 }
 

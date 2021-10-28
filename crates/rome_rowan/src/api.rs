@@ -397,6 +397,25 @@ impl<L: Language> SyntaxElement<L> {
 }
 
 #[derive(Debug, Clone)]
+pub struct SyntaxList<L: Language> {
+	raw: SyntaxNode<L>,
+}
+
+impl<L: Language> SyntaxList<L> {
+	pub fn text_range(&self) -> TextRange {
+		self.raw.text_range()
+	}
+
+	pub fn index(&self) -> usize {
+		self.raw.index()
+	}
+
+	pub fn text(&self) -> SyntaxText {
+		self.raw.text()
+	}
+}
+
+#[derive(Debug, Clone)]
 pub struct SyntaxNodeChildren<L: Language> {
 	raw: cursor::SyntaxNodeChildren,
 	_p: PhantomData<L>,
