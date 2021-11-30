@@ -89,7 +89,7 @@ fn function(p: &mut Parser, kind: SyntaxKind) -> ConditionalParsedSyntax {
 	}
 
 	let type_parameters =
-		parse_ts_parameter_types(guard).exclusive_for(&TypeScript, guard, |p, marker| {
+		TypeScript.parse_exclusive_syntax(guard, parse_ts_parameter_types, |p, marker| {
 			p.err_builder("type parameters can only be used in TypeScript files")
 				.primary(marker.range(p), "")
 		});
@@ -102,10 +102,11 @@ fn function(p: &mut Parser, kind: SyntaxKind) -> ConditionalParsedSyntax {
 
 	parameter_list(guard);
 
-	let return_type = parse_ts_return_type(guard).exclusive_for(&TypeScript, guard, |p, marker| {
-		p.err_builder("return types can only be used in TypeScript files")
-			.primary(marker.range(p), "")
-	});
+	let return_type =
+		TypeScript.parse_exclusive_syntax(guard, parse_ts_return_type, |p, marker| {
+			p.err_builder("return types can only be used in TypeScript files")
+				.primary(marker.range(p), "")
+		});
 
 	uses_ts_syntax |= return_type.is_present();
 

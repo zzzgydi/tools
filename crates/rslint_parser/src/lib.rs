@@ -100,6 +100,7 @@ pub use rslint_syntax::*;
 pub type ParserError = rslint_errors::Diagnostic;
 
 use crate::parser::{ConditionalParsedSyntax, ParsedSyntax};
+use crate::ParsedSyntax::Present;
 use rslint_errors::Diagnostic;
 use std::ops::Range;
 
@@ -276,6 +277,28 @@ pub trait SyntaxFeature: Sized {
 		E: FnOnce(&Parser, &CompletedMarker) -> Diagnostic,
 	{
 		syntax.into().exclusive_for(self, p, error_builder)
+	}
+
+	fn parse_exclusive_syntax<F, E>(
+		&self,
+		p: &mut Parser,
+		parse_fn: F,
+		error_builder: E,
+	) -> ConditionalParsedSyntax
+	where
+		F: FnOnce(&mut Parser) -> ParsedSyntax,
+		E: FnOnce(&Parser, &CompletedMarker) -> Diagnostic,
+	{
+		let errors_checkpoint = p.errors.len();
+		let parsed = parse_fn(p);
+
+		let result = parsed.exclusive_for(self, p, error_builder);
+
+		if self.is_unsupported(p) {
+			p.errors.truncate(errors_checkpoint);
+		}
+
+		result
 	}
 
 	/// Creates a syntax that is only valid if this syntax feature is supported in the current
