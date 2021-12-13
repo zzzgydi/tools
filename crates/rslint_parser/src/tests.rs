@@ -1,5 +1,8 @@
 use crate::ast::{ArgList, JsAnyRoot};
-use crate::{parse_module, parse_text, AstNode, Parse, ParserError, SyntaxNode, SyntaxToken};
+use crate::{
+	parse_module, parse_text, AstNode, Parse, ParserError, SyntaxDetachedNode, SyntaxNode,
+	SyntaxToken,
+};
 use expect_test::expect_file;
 use rome_rowan::TextSize;
 use rslint_errors::file::SimpleFile;
@@ -332,4 +335,20 @@ pub fn just_trivia_must_be_appended_to_eof() {
 
 	assert_eq!(TextSize::from(0), start);
 	assert_eq!(TextSize::from(34), end);
+}
+
+#[test]
+fn detached_elements() {
+	let text = " function foo() { let a = 1; }\n";
+	let root = parse_module(text, 0);
+
+	let var_decl = root
+		.syntax()
+		.descendants()
+		.find(|x| x.kind() == SyntaxKind::JS_VARIABLE_DECLARATION_STATEMENT)
+		.unwrap();
+
+	let detached: SyntaxDetachedNode = var_decl.clone().into();
+
+	assert_eq!(detached.syntax_node().text(), var_decl.text());
 }

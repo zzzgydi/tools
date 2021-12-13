@@ -30,6 +30,7 @@ pub use text_size::{TextLen, TextRange, TextSize};
 
 pub use crate::{
 	api::{
+		detached::{SyntaxDetachedElement, SyntaxDetachedNode, SyntaxDetachedToken},
 		Language, SyntaxElement, SyntaxElementChildren, SyntaxList, SyntaxNode, SyntaxNodeChildren,
 		SyntaxSlot, SyntaxSlots, SyntaxToken, TriviaPiece,
 	},

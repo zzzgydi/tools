@@ -35,7 +35,23 @@ pub type SyntaxElementChildren = rome_rowan::SyntaxElementChildren<JsLanguage>;
 pub type SyntaxList = rome_rowan::SyntaxList<JsLanguage>;
 pub type SyntaxSlots = rome_rowan::SyntaxSlots<JsLanguage>;
 pub type SyntaxSlot = rome_rowan::SyntaxSlot<JsLanguage>;
+pub type SyntaxDetachedNode = rome_rowan::SyntaxDetachedNode<JsLanguage>;
+pub type SyntaxDetachedToken = rome_rowan::SyntaxDetachedToken<JsLanguage>;
+pub type SyntaxDetachedElement = rome_rowan::SyntaxDetachedElement<JsLanguage>;
 
 pub use rome_rowan::{Direction, NodeOrToken};
 
 pub type SyntaxTreeBuilder = TreeBuilder<'static, JsLanguage>;
+
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	#[test]
+	fn assert_send_sync() {
+		fn f<T: Send + Sync>() {}
+		f::<SyntaxDetachedNode>();
+		f::<SyntaxDetachedToken>();
+		f::<SyntaxDetachedElement>();
+	}
+}
