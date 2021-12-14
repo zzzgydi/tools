@@ -169,7 +169,7 @@ fn implements_clause(p: &mut Parser) {
 		m.complete(&mut *p, ERROR);
 	}
 
-	list.complete(p, LIST);
+	list.complete(p, TS_TYPE_LIST);
 	implements_clause.complete(p, TS_IMPLEMENTS_CLAUSE);
 }
 
@@ -257,6 +257,10 @@ impl ParseNodeList for ClassMembersList {
 			),
 			js_parse_error::expected_class_member,
 		)
+	}
+
+	fn list_kind() -> SyntaxKind {
+		JS_CLASS_MEMBER_LIST
 	}
 }
 
@@ -851,7 +855,7 @@ fn parse_constructor_class_member_body(p: &mut Parser, member_marker: Marker) ->
 fn parse_constructor_parameter_list(p: &mut Parser) -> ParsedSyntax<CompletedMarker> {
 	let m = p.start();
 	parse_parameters_list(p, parse_constructor_parameter);
-	Present(m.complete(p, JS_CONSTRUCTOR_PARAMETER_LIST))
+	Present(m.complete(p, JS_CONSTRUCTOR_PARAMETERS))
 }
 
 fn parse_constructor_parameter(p: &mut Parser) -> ParsedSyntax<CompletedMarker> {

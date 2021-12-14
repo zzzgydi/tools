@@ -77,13 +77,13 @@ JsModule {
 
 0: JS_MODULE@0..68
   0: (empty)
-  1: LIST@0..0
-  2: LIST@0..67
+  1: JS_DIRECTIVE_LIST@0..0
+  2: JS_MODULE_ITEM_LIST@0..67
     0: JS_CLASS_DECLARATION@0..8
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: (empty)
       2: L_CURLY@6..7 "{" [] []
-      3: LIST@7..7
+      3: JS_CLASS_MEMBER_LIST@7..7
       4: R_CURLY@7..8 "}" [] []
     1: JS_CLASS_DECLARATION@8..29
       0: CLASS_KW@8..15 "class" [Whitespace("\n")] [Whitespace(" ")]
@@ -94,14 +94,14 @@ JsModule {
           0: JS_REFERENCE_IDENTIFIER@23..27
             0: IDENT@23..27 "bar" [] [Whitespace(" ")]
       3: L_CURLY@27..28 "{" [] []
-      4: LIST@28..28
+      4: JS_CLASS_MEMBER_LIST@28..28
       5: R_CURLY@28..29 "}" [] []
     2: JS_CLASS_DECLARATION@29..50
       0: CLASS_KW@29..36 "class" [Whitespace("\n")] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@36..40
         0: IDENT@36..40 "foo" [] [Whitespace(" ")]
       2: L_CURLY@40..42 "{" [] [Whitespace(" ")]
-      3: LIST@42..49
+      3: JS_CLASS_MEMBER_LIST@42..49
         0: JS_SETTER_CLASS_MEMBER@42..49
           0: SET_KW@42..46 "set" [] [Whitespace(" ")]
           1: (empty)
@@ -110,8 +110,8 @@ JsModule {
           4: (empty)
           5: JS_FUNCTION_BODY@46..49
             0: L_CURLY@46..47 "{" [] []
-            1: LIST@47..47
-            2: LIST@47..47
+            1: JS_DIRECTIVE_LIST@47..47
+            2: JS_STATEMENT_LIST@47..47
             3: R_CURLY@47..49 "}" [] [Whitespace(" ")]
       4: R_CURLY@49..50 "}" [] []
     3: JS_CLASS_DECLARATION@50..67
@@ -124,7 +124,7 @@ JsModule {
           1: (empty)
           2: R_CURLY@66..67 "}" [] []
       3: (empty)
-      4: LIST@67..67
+      4: JS_CLASS_MEMBER_LIST@67..67
       5: (empty)
   3: EOF@67..68 "" [Whitespace("\n")] []
 --

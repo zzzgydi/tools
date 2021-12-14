@@ -30,14 +30,14 @@ JsModule {
 
 0: JS_MODULE@0..12
   0: (empty)
-  1: LIST@0..0
-  2: LIST@0..11
+  1: JS_DIRECTIVE_LIST@0..0
+  2: JS_MODULE_ITEM_LIST@0..11
     0: JS_CLASS_DECLARATION@0..10
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..7
         0: IDENT@6..7 "S" [] []
       2: L_CURLY@7..8 "{" [] []
-      3: LIST@8..9
+      3: JS_CLASS_MEMBER_LIST@8..9
         0: JS_UNKNOWN_MEMBER@8..9
           0: L_CURLY@8..9 "{" [] []
       4: R_CURLY@9..10 "}" [] []

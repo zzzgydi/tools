@@ -222,14 +222,14 @@ JsModule {
 
 0: JS_MODULE@0..255
   0: (empty)
-  1: LIST@0..0
-  2: LIST@0..253
+  1: JS_DIRECTIVE_LIST@0..0
+  2: JS_MODULE_ITEM_LIST@0..253
     0: JS_CLASS_DECLARATION@0..253
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..10
         0: IDENT@6..10 "foo" [] [Whitespace(" ")]
       2: L_CURLY@10..11 "{" [] []
-      3: LIST@11..251
+      3: JS_CLASS_MEMBER_LIST@11..251
         0: JS_PROPERTY_CLASS_MEMBER@11..21
           0: JS_LITERAL_MEMBER_NAME@11..21
             0: IDENT@11..21 "property" [Whitespace("\n\t")] []
