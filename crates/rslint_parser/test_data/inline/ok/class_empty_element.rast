@@ -2,77 +2,75 @@ JsModule {
     interpreter_token: missing (optional),
     directives: JsDirectiveList [],
     items: JsModuleItemList [
-        JsClassDeclaration {
-            class_token: CLASS_KW@0..6 "class" [] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@6..10 "foo" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: missing (optional),
-            l_curly_token: L_CURLY@10..12 "{" [] [Whitespace(" ")],
-            members: JsClassMemberList [
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@12..13 ";" [] [],
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@0..6 "class" [] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@6..10 "foo" [] [Whitespace(" ")],
                 },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@13..14 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@14..15 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@15..16 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@16..17 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@17..18 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@18..19 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@19..20 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@20..21 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@21..23 ";" [] [Whitespace(" ")],
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@23..27 "get" [] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: IDENT@27..30 "foo" [] [],
+                L_CURLY@10..12 "{" [] [Whitespace(" ")],
+                JsClassMemberList [
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@12..13 ";" [] [],
                     },
-                    l_paren_token: L_PAREN@30..31 "(" [] [],
-                    r_paren_token: R_PAREN@31..33 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@33..34 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@34..35 "}" [] [],
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@13..14 ";" [] [],
                     },
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@35..36 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@36..37 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@37..38 ";" [] [],
-                },
-                JsEmptyClassMember {
-                    semicolon_token: SEMICOLON@38..39 ";" [] [],
-                },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@14..15 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@15..16 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@16..17 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@17..18 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@18..19 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@19..20 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@20..21 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@21..23 ";" [] [Whitespace(" ")],
+                    },
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@23..27 "get" [] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@27..30 "foo" [] [],
+                            },
+                            L_PAREN@30..31 "(" [] [],
+                            R_PAREN@31..33 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@33..34 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@34..35 "}" [] [],
+                            },
+                        ],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@35..36 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@36..37 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@37..38 ";" [] [],
+                    },
+                    JsEmptyClassMember {
+                        semicolon_token: SEMICOLON@38..39 ";" [] [],
+                    },
+                ],
+                R_CURLY@39..40 "}" [] [],
             ],
-            r_curly_token: R_CURLY@39..40 "}" [] [],
         },
     ],
     eof_token: EOF@40..41 "" [Whitespace("\n")] [],
@@ -82,7 +80,7 @@ JsModule {
   0: (empty)
   1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..40
-    0: JS_CLASS_DECLARATION@0..40
+    0: JS_UNKNOWN_STATEMENT@0..40
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..10
         0: IDENT@6..10 "foo" [] [Whitespace(" ")]
@@ -108,7 +106,7 @@ JsModule {
           0: SEMICOLON@20..21 ";" [] []
         9: JS_EMPTY_CLASS_MEMBER@21..23
           0: SEMICOLON@21..23 ";" [] [Whitespace(" ")]
-        10: JS_GETTER_CLASS_MEMBER@23..35
+        10: JS_UNKNOWN_MEMBER@23..35
           0: GET_KW@23..27 "get" [] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@27..30
             0: IDENT@27..30 "foo" [] []

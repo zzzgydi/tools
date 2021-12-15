@@ -62,7 +62,8 @@ fn try_parse(path: &str, text: &str) -> Parse<JsAnyRoot> {
 		let parse = if text.contains("// SCRIPT") {
 			parse_text(text, 0).cast::<JsAnyRoot>().unwrap()
 		} else {
-			parse_module(text, 0).cast::<JsAnyRoot>().unwrap()
+			let module = parse_module(text, 0);
+			module.cast::<JsAnyRoot>().unwrap()
 		};
 
 		assert_eq!(

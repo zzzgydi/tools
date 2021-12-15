@@ -2,33 +2,28 @@ JsModule {
     interpreter_token: missing (optional),
     directives: JsDirectiveList [],
     items: JsModuleItemList [
-        JsClassDeclaration {
-            class_token: CLASS_KW@0..6 "class" [] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@6..10 "foo" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: missing (optional),
-            l_curly_token: L_CURLY@10..11 "{" [] [],
-            members: JsClassMemberList [
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@11..17 "get" [Whitespace("\n ")] [Whitespace(" ")],
-                    name: missing (required),
-                    l_paren_token: missing (required),
-                    r_paren_token: missing (required),
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@17..18 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@18..19 "}" [] [],
-                    },
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@0..6 "class" [] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@6..10 "foo" [] [Whitespace(" ")],
                 },
+                L_CURLY@10..11 "{" [] [],
+                JsClassMemberList [
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@11..17 "get" [Whitespace("\n ")] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@17..18 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@18..19 "}" [] [],
+                            },
+                        ],
+                    },
+                ],
+                R_CURLY@19..21 "}" [Whitespace("\n")] [],
             ],
-            r_curly_token: R_CURLY@19..21 "}" [Whitespace("\n")] [],
         },
     ],
     eof_token: EOF@21..22 "" [Whitespace("\n")] [],
@@ -38,13 +33,13 @@ JsModule {
   0: (empty)
   1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..21
-    0: JS_CLASS_DECLARATION@0..21
+    0: JS_UNKNOWN_STATEMENT@0..21
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..10
         0: IDENT@6..10 "foo" [] [Whitespace(" ")]
       2: L_CURLY@10..11 "{" [] []
       3: JS_CLASS_MEMBER_LIST@11..19
-        0: JS_GETTER_CLASS_MEMBER@11..19
+        0: JS_UNKNOWN_MEMBER@11..19
           0: GET_KW@11..17 "get" [Whitespace("\n ")] [Whitespace(" ")]
           1: (empty)
           2: (empty)

@@ -14,13 +14,13 @@ JsModule {
                         type_annotation: missing (optional),
                         initializer: JsInitializerClause {
                             eq_token: EQ@6..8 "=" [] [Whitespace(" ")],
-                            expression: JsClassExpression {
-                                class_token: CLASS_KW@8..14 "class" [] [Whitespace(" ")],
-                                id: missing (optional),
-                                extends_clause: missing (optional),
-                                l_curly_token: L_CURLY@14..15 "{" [] [],
-                                members: JsClassMemberList [],
-                                r_curly_token: R_CURLY@15..16 "}" [] [],
+                            expression: JsUnknownExpression {
+                                items: [
+                                    CLASS_KW@8..14 "class" [] [Whitespace(" ")],
+                                    L_CURLY@14..15 "{" [] [],
+                                    JsClassMemberList [],
+                                    R_CURLY@15..16 "}" [] [],
+                                ],
                             },
                         },
                     },
@@ -40,33 +40,35 @@ JsModule {
                         type_annotation: missing (optional),
                         initializer: JsInitializerClause {
                             eq_token: EQ@24..26 "=" [] [Whitespace(" ")],
-                            expression: JsClassExpression {
-                                class_token: CLASS_KW@26..32 "class" [] [Whitespace(" ")],
-                                id: JsIdentifierBinding {
-                                    name_token: IDENT@32..36 "foo" [] [Whitespace(" ")],
-                                },
-                                extends_clause: missing (optional),
-                                l_curly_token: L_CURLY@36..37 "{" [] [],
-                                members: JsClassMemberList [
-                                    JsConstructorClassMember {
-                                        access_modifier: missing (optional),
-                                        name: JsLiteralMemberName {
-                                            value: IDENT@37..50 "constructor" [Whitespace("\n ")] [],
-                                        },
-                                        parameters: JsConstructorParameters {
-                                            l_paren_token: L_PAREN@50..51 "(" [] [],
-                                            parameters: JsConstructorParameterList [],
-                                            r_paren_token: R_PAREN@51..53 ")" [] [Whitespace(" ")],
-                                        },
-                                        body: JsFunctionBody {
-                                            l_curly_token: L_CURLY@53..54 "{" [] [],
-                                            directives: JsDirectiveList [],
-                                            statements: JsStatementList [],
-                                            r_curly_token: R_CURLY@54..55 "}" [] [],
-                                        },
+                            expression: JsUnknownExpression {
+                                items: [
+                                    CLASS_KW@26..32 "class" [] [Whitespace(" ")],
+                                    JsIdentifierBinding {
+                                        name_token: IDENT@32..36 "foo" [] [Whitespace(" ")],
                                     },
+                                    L_CURLY@36..37 "{" [] [],
+                                    JsClassMemberList [
+                                        JsUnknownMember {
+                                            items: [
+                                                JsLiteralMemberName {
+                                                    value: IDENT@37..50 "constructor" [Whitespace("\n ")] [],
+                                                },
+                                                JsConstructorParameters {
+                                                    l_paren_token: L_PAREN@50..51 "(" [] [],
+                                                    parameters: JsConstructorParameterList [],
+                                                    r_paren_token: R_PAREN@51..53 ")" [] [Whitespace(" ")],
+                                                },
+                                                JsFunctionBody {
+                                                    l_curly_token: L_CURLY@53..54 "{" [] [],
+                                                    directives: JsDirectiveList [],
+                                                    statements: JsStatementList [],
+                                                    r_curly_token: R_CURLY@54..55 "}" [] [],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                    R_CURLY@55..57 "}" [Whitespace("\n")] [],
                                 ],
-                                r_curly_token: R_CURLY@55..57 "}" [Whitespace("\n")] [],
                             },
                         },
                     },
@@ -83,13 +85,13 @@ JsModule {
                 },
                 optional_chain_token_token: missing (optional),
                 l_brack_token: L_BRACK@61..62 "[" [] [],
-                member: JsClassExpression {
-                    class_token: CLASS_KW@62..68 "class" [] [Whitespace(" ")],
-                    id: missing (optional),
-                    extends_clause: missing (optional),
-                    l_curly_token: L_CURLY@68..69 "{" [] [],
-                    members: JsClassMemberList [],
-                    r_curly_token: R_CURLY@69..70 "}" [] [],
+                member: JsUnknownExpression {
+                    items: [
+                        CLASS_KW@62..68 "class" [] [Whitespace(" ")],
+                        L_CURLY@68..69 "{" [] [],
+                        JsClassMemberList [],
+                        R_CURLY@69..70 "}" [] [],
+                    ],
                 },
                 r_brack_token: R_BRACK@70..71 "]" [] [],
             },
@@ -114,7 +116,7 @@ JsModule {
             2: (empty)
             3: JS_INITIALIZER_CLAUSE@6..16
               0: EQ@6..8 "=" [] [Whitespace(" ")]
-              1: JS_CLASS_EXPRESSION@8..16
+              1: JS_UNKNOWN_EXPRESSION@8..16
                 0: CLASS_KW@8..14 "class" [] [Whitespace(" ")]
                 1: L_CURLY@14..15 "{" [] []
                 2: JS_CLASS_MEMBER_LIST@15..15
@@ -131,13 +133,13 @@ JsModule {
             2: (empty)
             3: JS_INITIALIZER_CLAUSE@24..57
               0: EQ@24..26 "=" [] [Whitespace(" ")]
-              1: JS_CLASS_EXPRESSION@26..57
+              1: JS_UNKNOWN_EXPRESSION@26..57
                 0: CLASS_KW@26..32 "class" [] [Whitespace(" ")]
                 1: JS_IDENTIFIER_BINDING@32..36
                   0: IDENT@32..36 "foo" [] [Whitespace(" ")]
                 2: L_CURLY@36..37 "{" [] []
                 3: JS_CLASS_MEMBER_LIST@37..55
-                  0: JS_CONSTRUCTOR_CLASS_MEMBER@37..55
+                  0: JS_UNKNOWN_MEMBER@37..55
                     0: JS_LITERAL_MEMBER_NAME@37..50
                       0: IDENT@37..50 "constructor" [Whitespace("\n ")] []
                     1: JS_CONSTRUCTOR_PARAMETERS@50..53
@@ -158,7 +160,7 @@ JsModule {
             0: IDENT@57..61 "foo" [Whitespace("\n")] []
         1: (empty)
         2: L_BRACK@61..62 "[" [] []
-        3: JS_CLASS_EXPRESSION@62..70
+        3: JS_UNKNOWN_EXPRESSION@62..70
           0: CLASS_KW@62..68 "class" [] [Whitespace(" ")]
           1: L_CURLY@68..69 "{" [] []
           2: JS_CLASS_MEMBER_LIST@69..69

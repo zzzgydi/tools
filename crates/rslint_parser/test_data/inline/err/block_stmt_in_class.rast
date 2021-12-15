@@ -2,22 +2,22 @@ JsModule {
     interpreter_token: missing (optional),
     directives: JsDirectiveList [],
     items: JsModuleItemList [
-        JsClassDeclaration {
-            class_token: CLASS_KW@0..6 "class" [] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@6..7 "S" [] [],
-            },
-            implements_clause: missing (optional),
-            extends_clause: missing (optional),
-            l_curly_token: L_CURLY@7..8 "{" [] [],
-            members: JsClassMemberList [
-                JsUnknownMember {
-                    items: [
-                        L_CURLY@8..9 "{" [] [],
-                    ],
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@0..6 "class" [] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@6..7 "S" [] [],
                 },
+                L_CURLY@7..8 "{" [] [],
+                JsClassMemberList [
+                    JsUnknownMember {
+                        items: [
+                            L_CURLY@8..9 "{" [] [],
+                        ],
+                    },
+                ],
+                R_CURLY@9..10 "}" [] [],
             ],
-            r_curly_token: R_CURLY@9..10 "}" [] [],
         },
         JsUnknownStatement {
             items: [
@@ -32,7 +32,7 @@ JsModule {
   0: (empty)
   1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..11
-    0: JS_CLASS_DECLARATION@0..10
+    0: JS_UNKNOWN_STATEMENT@0..10
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..7
         0: IDENT@6..7 "S" [] []

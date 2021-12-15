@@ -2,41 +2,64 @@ JsModule {
     interpreter_token: missing (optional),
     directives: JsDirectiveList [],
     items: JsModuleItemList [
-        JsClassDeclaration {
-            class_token: CLASS_KW@0..6 "class" [] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@6..8 "A" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: JsExtendsClause {
-                extends_token: EXTENDS_KW@8..16 "extends" [] [Whitespace(" ")],
-                super_class: JsIdentifierExpression {
-                    name: JsReferenceIdentifier {
-                        value_token: IDENT@16..20 "bar" [] [Whitespace(" ")],
-                    },
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@0..6 "class" [] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@6..8 "A" [] [Whitespace(" ")],
                 },
-            },
-            l_curly_token: L_CURLY@32..33 "{" [] [],
-            members: JsClassMemberList [],
-            r_curly_token: R_CURLY@33..34 "}" [] [],
+                JsUnknown {
+                    items: [
+                        EXTENDS_KW@8..16 "extends" [] [Whitespace(" ")],
+                        JsIdentifierExpression {
+                            name: JsReferenceIdentifier {
+                                value_token: IDENT@16..20 "bar" [] [Whitespace(" ")],
+                            },
+                        },
+                        2: ERROR@20..32
+                          0: EXTENDS_KW@20..28 "extends" [] [Whitespace(" ")]
+                          1: JS_UNKNOWN@28..32
+                            0: JS_IDENTIFIER_EXPRESSION@28..32
+                              0: JS_REFERENCE_IDENTIFIER@28..32
+                                0: IDENT@28..32 "foo" [] [Whitespace(" ")]
+                        ,
+                    ],
+                },
+                L_CURLY@32..33 "{" [] [],
+                JsClassMemberList [],
+                R_CURLY@33..34 "}" [] [],
+            ],
         },
-        JsClassDeclaration {
-            class_token: CLASS_KW@34..41 "class" [Whitespace("\n")] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@41..43 "A" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: JsExtendsClause {
-                extends_token: EXTENDS_KW@43..51 "extends" [] [Whitespace(" ")],
-                super_class: JsIdentifierExpression {
-                    name: JsReferenceIdentifier {
-                        value_token: IDENT@51..54 "bar" [] [],
-                    },
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@34..41 "class" [Whitespace("\n")] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@41..43 "A" [] [Whitespace(" ")],
                 },
-            },
-            l_curly_token: L_CURLY@60..61 "{" [] [],
-            members: JsClassMemberList [],
-            r_curly_token: R_CURLY@61..62 "}" [] [],
+                JsUnknown {
+                    items: [
+                        EXTENDS_KW@43..51 "extends" [] [Whitespace(" ")],
+                        JsIdentifierExpression {
+                            name: JsReferenceIdentifier {
+                                value_token: IDENT@51..54 "bar" [] [],
+                            },
+                        },
+                        COMMA@54..56 "," [] [Whitespace(" ")],
+                        JsUnknown {
+                            items: [
+                                JsIdentifierExpression {
+                                    name: JsReferenceIdentifier {
+                                        value_token: IDENT@56..60 "foo" [] [Whitespace(" ")],
+                                    },
+                                },
+                            ],
+                        },
+                    ],
+                },
+                L_CURLY@60..61 "{" [] [],
+                JsClassMemberList [],
+                R_CURLY@61..62 "}" [] [],
+            ],
         },
     ],
     eof_token: EOF@62..63 "" [Whitespace("\n")] [],
@@ -46,35 +69,35 @@ JsModule {
   0: (empty)
   1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..62
-    0: JS_CLASS_DECLARATION@0..34
+    0: JS_UNKNOWN_STATEMENT@0..34
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..8
         0: IDENT@6..8 "A" [] [Whitespace(" ")]
-      2: JS_EXTENDS_CLAUSE@8..32
+      2: JS_UNKNOWN@8..32
         0: EXTENDS_KW@8..16 "extends" [] [Whitespace(" ")]
         1: JS_IDENTIFIER_EXPRESSION@16..20
           0: JS_REFERENCE_IDENTIFIER@16..20
             0: IDENT@16..20 "bar" [] [Whitespace(" ")]
         2: ERROR@20..32
           0: EXTENDS_KW@20..28 "extends" [] [Whitespace(" ")]
-          1: TS_EXPR_WITH_TYPE_ARGS@28..32
+          1: JS_UNKNOWN@28..32
             0: JS_IDENTIFIER_EXPRESSION@28..32
               0: JS_REFERENCE_IDENTIFIER@28..32
                 0: IDENT@28..32 "foo" [] [Whitespace(" ")]
       3: L_CURLY@32..33 "{" [] []
       4: JS_CLASS_MEMBER_LIST@33..33
       5: R_CURLY@33..34 "}" [] []
-    1: JS_CLASS_DECLARATION@34..62
+    1: JS_UNKNOWN_STATEMENT@34..62
       0: CLASS_KW@34..41 "class" [Whitespace("\n")] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@41..43
         0: IDENT@41..43 "A" [] [Whitespace(" ")]
-      2: JS_EXTENDS_CLAUSE@43..60
+      2: JS_UNKNOWN@43..60
         0: EXTENDS_KW@43..51 "extends" [] [Whitespace(" ")]
         1: JS_IDENTIFIER_EXPRESSION@51..54
           0: JS_REFERENCE_IDENTIFIER@51..54
             0: IDENT@51..54 "bar" [] []
         2: COMMA@54..56 "," [] [Whitespace(" ")]
-        3: TS_EXPR_WITH_TYPE_ARGS@56..60
+        3: JS_UNKNOWN@56..60
           0: JS_IDENTIFIER_EXPRESSION@56..60
             0: JS_REFERENCE_IDENTIFIER@56..60
               0: IDENT@56..60 "foo" [] [Whitespace(" ")]

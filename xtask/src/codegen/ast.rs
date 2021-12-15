@@ -7,6 +7,7 @@ use super::{
 	kinds_src::{AstSrc, Field},
 	to_lower_snake_case, Mode,
 };
+use crate::codegen::generate_js_tree_shape::generate_js_tree_shape;
 use crate::codegen::kinds_src::{AstListSrc, TokenKind};
 use crate::{
 	codegen::{
@@ -34,6 +35,10 @@ pub fn generate_ast(mode: Mode) -> Result<()> {
 	let syntax_kinds_file = project_root().join(codegen::SYNTAX_KINDS);
 	let contents = generate_syntax_kinds(KINDS_SRC)?;
 	update(syntax_kinds_file.as_path(), &contents, mode)?;
+
+	let js_tree_shape_file = project_root().join(codegen::JS_TREE_SHAPE);
+	let contents = generate_js_tree_shape(&ast)?;
+	update(js_tree_shape_file.as_path(), &contents, mode)?;
 
 	Ok(())
 }

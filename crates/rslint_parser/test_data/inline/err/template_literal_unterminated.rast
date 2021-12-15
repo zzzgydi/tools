@@ -68,6 +68,7 @@ JsModule {
                     2: R_CURLY@14..15 "}" [] []
                   1: TEMPLATE_CHUNK_ELEMENT@15..20
                     0: TEMPLATE_CHUNK@15..20 " bar\n" [] []
+                2: (empty)
       1: (empty)
   3: EOF@20..20 "" [] []
 --

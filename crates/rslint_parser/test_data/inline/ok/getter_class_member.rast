@@ -2,235 +2,209 @@ JsModule {
     interpreter_token: missing (optional),
     directives: JsDirectiveList [],
     items: JsModuleItemList [
-        JsClassDeclaration {
-            class_token: CLASS_KW@0..6 "class" [] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@6..14 "Getters" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: missing (optional),
-            l_curly_token: L_CURLY@14..15 "{" [] [],
-            members: JsClassMemberList [
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@15..21 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: IDENT@21..24 "foo" [] [],
-                    },
-                    l_paren_token: L_PAREN@24..25 "(" [] [],
-                    r_paren_token: R_PAREN@25..27 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@27..28 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@28..29 "}" [] [],
-                    },
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@0..6 "class" [] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@6..14 "Getters" [] [Whitespace(" ")],
                 },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@29..35 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: IDENT@35..41 "static" [] [],
-                    },
-                    l_paren_token: L_PAREN@41..42 "(" [] [],
-                    r_paren_token: R_PAREN@42..44 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@44..45 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@45..46 "}" [] [],
-                    },
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: STATIC_KW@46..55 "static" [Whitespace("\n\t")] [Whitespace(" ")],
-                    get_token: GET_KW@55..59 "get" [] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: IDENT@59..62 "bar" [] [],
-                    },
-                    l_paren_token: L_PAREN@62..63 "(" [] [],
-                    r_paren_token: R_PAREN@63..65 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@65..66 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@66..67 "}" [] [],
-                    },
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@67..73 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: JS_STRING_LITERAL@73..78 "\"baz\"" [] [],
-                    },
-                    l_paren_token: L_PAREN@78..79 "(" [] [],
-                    r_paren_token: R_PAREN@79..81 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@81..82 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@82..83 "}" [] [],
-                    },
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@83..89 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsComputedMemberName {
-                        l_brack_token: L_BRACK@89..90 "[" [] [],
-                        expression: JsBinaryExpression {
-                            left: JsStringLiteralExpression {
-                                value_token: JS_STRING_LITERAL@90..94 "\"a\"" [] [Whitespace(" ")],
+                L_CURLY@14..15 "{" [] [],
+                JsClassMemberList [
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@15..21 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@21..24 "foo" [] [],
                             },
-                            operator: PLUS@94..96 "+" [] [Whitespace(" ")],
-                            right: JsStringLiteralExpression {
-                                value_token: JS_STRING_LITERAL@96..99 "\"b\"" [] [],
+                            L_PAREN@24..25 "(" [] [],
+                            R_PAREN@25..27 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@27..28 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@28..29 "}" [] [],
                             },
-                        },
-                        r_brack_token: R_BRACK@99..100 "]" [] [],
+                        ],
                     },
-                    l_paren_token: L_PAREN@100..101 "(" [] [],
-                    r_paren_token: R_PAREN@101..103 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@103..104 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@104..105 "}" [] [],
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@29..35 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@35..41 "static" [] [],
+                            },
+                            L_PAREN@41..42 "(" [] [],
+                            R_PAREN@42..44 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@44..45 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@45..46 "}" [] [],
+                            },
+                        ],
                     },
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@105..111 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsLiteralMemberName {
-                        value: JS_NUMBER_LITERAL@111..112 "5" [] [],
+                    JsUnknownMember {
+                        items: [
+                            STATIC_KW@46..55 "static" [Whitespace("\n\t")] [Whitespace(" ")],
+                            GET_KW@55..59 "get" [] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@59..62 "bar" [] [],
+                            },
+                            L_PAREN@62..63 "(" [] [],
+                            R_PAREN@63..65 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@65..66 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@66..67 "}" [] [],
+                            },
+                        ],
                     },
-                    l_paren_token: L_PAREN@112..113 "(" [] [],
-                    r_paren_token: R_PAREN@113..115 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@115..116 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@116..117 "}" [] [],
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@67..73 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: JS_STRING_LITERAL@73..78 "\"baz\"" [] [],
+                            },
+                            L_PAREN@78..79 "(" [] [],
+                            R_PAREN@79..81 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@81..82 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@82..83 "}" [] [],
+                            },
+                        ],
                     },
-                },
-                JsGetterClassMember {
-                    access_modifier: missing (optional),
-                    abstract_token: missing (optional),
-                    static_token: missing (optional),
-                    get_token: GET_KW@117..123 "get" [Whitespace("\n\t")] [Whitespace(" ")],
-                    name: JsPrivateClassMemberName {
-                        hash_token: HASH@123..124 "#" [] [],
-                        id_token: IDENT@124..131 "private" [] [],
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@83..89 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsComputedMemberName {
+                                l_brack_token: L_BRACK@89..90 "[" [] [],
+                                expression: JsBinaryExpression {
+                                    left: JsStringLiteralExpression {
+                                        value_token: JS_STRING_LITERAL@90..94 "\"a\"" [] [Whitespace(" ")],
+                                    },
+                                    operator: PLUS@94..96 "+" [] [Whitespace(" ")],
+                                    right: JsStringLiteralExpression {
+                                        value_token: JS_STRING_LITERAL@96..99 "\"b\"" [] [],
+                                    },
+                                },
+                                r_brack_token: R_BRACK@99..100 "]" [] [],
+                            },
+                            L_PAREN@100..101 "(" [] [],
+                            R_PAREN@101..103 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@103..104 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@104..105 "}" [] [],
+                            },
+                        ],
                     },
-                    l_paren_token: L_PAREN@131..132 "(" [] [],
-                    r_paren_token: R_PAREN@132..134 ")" [] [Whitespace(" ")],
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@134..135 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@135..136 "}" [] [],
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@105..111 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: JS_NUMBER_LITERAL@111..112 "5" [] [],
+                            },
+                            L_PAREN@112..113 "(" [] [],
+                            R_PAREN@113..115 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@115..116 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@116..117 "}" [] [],
+                            },
+                        ],
                     },
-                },
+                    JsUnknownMember {
+                        items: [
+                            GET_KW@117..123 "get" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsPrivateClassMemberName {
+                                hash_token: HASH@123..124 "#" [] [],
+                                id_token: IDENT@124..131 "private" [] [],
+                            },
+                            L_PAREN@131..132 "(" [] [],
+                            R_PAREN@132..134 ")" [] [Whitespace(" ")],
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@134..135 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@135..136 "}" [] [],
+                            },
+                        ],
+                    },
+                ],
+                R_CURLY@136..138 "}" [Whitespace("\n")] [],
             ],
-            r_curly_token: R_CURLY@136..138 "}" [Whitespace("\n")] [],
         },
-        JsClassDeclaration {
-            class_token: CLASS_KW@138..145 "class" [Whitespace("\n")] [Whitespace(" ")],
-            id: JsIdentifierBinding {
-                name_token: IDENT@145..156 "NotGetters" [] [Whitespace(" ")],
-            },
-            implements_clause: missing (optional),
-            extends_clause: missing (optional),
-            l_curly_token: L_CURLY@156..157 "{" [] [],
-            members: JsClassMemberList [
-                JsMethodClassMember {
-                    access_modifier: missing (optional),
-                    static_token: missing (optional),
-                    abstract_token: missing (optional),
-                    async_token: missing (optional),
-                    star_token: missing (optional),
-                    name: JsLiteralMemberName {
-                        value: IDENT@157..162 "get" [Whitespace("\n\t")] [],
-                    },
-                    type_parameters: missing (optional),
-                    parameters: JsParameters {
-                        l_paren_token: L_PAREN@162..163 "(" [] [],
-                        items: JsParameterList [],
-                        r_paren_token: R_PAREN@163..165 ")" [] [Whitespace(" ")],
-                    },
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@165..166 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@166..167 "}" [] [],
-                    },
+        JsUnknownStatement {
+            items: [
+                CLASS_KW@138..145 "class" [Whitespace("\n")] [Whitespace(" ")],
+                JsIdentifierBinding {
+                    name_token: IDENT@145..156 "NotGetters" [] [Whitespace(" ")],
                 },
-                JsMethodClassMember {
-                    access_modifier: missing (optional),
-                    static_token: missing (optional),
-                    abstract_token: missing (optional),
-                    async_token: ASYNC_KW@167..175 "async" [Whitespace("\n\t")] [Whitespace(" ")],
-                    star_token: missing (optional),
-                    name: JsLiteralMemberName {
-                        value: IDENT@175..178 "get" [] [],
+                L_CURLY@156..157 "{" [] [],
+                JsClassMemberList [
+                    JsUnknownMember {
+                        items: [
+                            JsLiteralMemberName {
+                                value: IDENT@157..162 "get" [Whitespace("\n\t")] [],
+                            },
+                            JsParameters {
+                                l_paren_token: L_PAREN@162..163 "(" [] [],
+                                items: JsParameterList [],
+                                r_paren_token: R_PAREN@163..165 ")" [] [Whitespace(" ")],
+                            },
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@165..166 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@166..167 "}" [] [],
+                            },
+                        ],
                     },
-                    type_parameters: missing (optional),
-                    parameters: JsParameters {
-                        l_paren_token: L_PAREN@178..179 "(" [] [],
-                        items: JsParameterList [],
-                        r_paren_token: R_PAREN@179..181 ")" [] [Whitespace(" ")],
+                    JsUnknownMember {
+                        items: [
+                            ASYNC_KW@167..175 "async" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@175..178 "get" [] [],
+                            },
+                            JsParameters {
+                                l_paren_token: L_PAREN@178..179 "(" [] [],
+                                items: JsParameterList [],
+                                r_paren_token: R_PAREN@179..181 ")" [] [Whitespace(" ")],
+                            },
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@181..182 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@182..183 "}" [] [],
+                            },
+                        ],
                     },
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@181..182 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@182..183 "}" [] [],
+                    JsUnknownMember {
+                        items: [
+                            STATIC_KW@183..192 "static" [Whitespace("\n\t")] [Whitespace(" ")],
+                            JsLiteralMemberName {
+                                value: IDENT@192..195 "get" [] [],
+                            },
+                            JsParameters {
+                                l_paren_token: L_PAREN@195..196 "(" [] [],
+                                items: JsParameterList [],
+                                r_paren_token: R_PAREN@196..198 ")" [] [Whitespace(" ")],
+                            },
+                            JsFunctionBody {
+                                l_curly_token: L_CURLY@198..199 "{" [] [],
+                                directives: JsDirectiveList [],
+                                statements: JsStatementList [],
+                                r_curly_token: R_CURLY@199..200 "}" [] [],
+                            },
+                        ],
                     },
-                },
-                JsMethodClassMember {
-                    access_modifier: missing (optional),
-                    static_token: STATIC_KW@183..192 "static" [Whitespace("\n\t")] [Whitespace(" ")],
-                    abstract_token: missing (optional),
-                    async_token: missing (optional),
-                    star_token: missing (optional),
-                    name: JsLiteralMemberName {
-                        value: IDENT@192..195 "get" [] [],
-                    },
-                    type_parameters: missing (optional),
-                    parameters: JsParameters {
-                        l_paren_token: L_PAREN@195..196 "(" [] [],
-                        items: JsParameterList [],
-                        r_paren_token: R_PAREN@196..198 ")" [] [Whitespace(" ")],
-                    },
-                    return_type: missing (optional),
-                    body: JsFunctionBody {
-                        l_curly_token: L_CURLY@198..199 "{" [] [],
-                        directives: JsDirectiveList [],
-                        statements: JsStatementList [],
-                        r_curly_token: R_CURLY@199..200 "}" [] [],
-                    },
-                },
+                ],
+                R_CURLY@200..202 "}" [Whitespace("\n")] [],
             ],
-            r_curly_token: R_CURLY@200..202 "}" [Whitespace("\n")] [],
         },
     ],
     eof_token: EOF@202..203 "" [Whitespace("\n")] [],
@@ -240,13 +214,13 @@ JsModule {
   0: (empty)
   1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..202
-    0: JS_CLASS_DECLARATION@0..138
+    0: JS_UNKNOWN_STATEMENT@0..138
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..14
         0: IDENT@6..14 "Getters" [] [Whitespace(" ")]
       2: L_CURLY@14..15 "{" [] []
       3: JS_CLASS_MEMBER_LIST@15..136
-        0: JS_GETTER_CLASS_MEMBER@15..29
+        0: JS_UNKNOWN_MEMBER@15..29
           0: GET_KW@15..21 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@21..24
             0: IDENT@21..24 "foo" [] []
@@ -258,7 +232,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@28..28
             2: JS_STATEMENT_LIST@28..28
             3: R_CURLY@28..29 "}" [] []
-        1: JS_GETTER_CLASS_MEMBER@29..46
+        1: JS_UNKNOWN_MEMBER@29..46
           0: GET_KW@29..35 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@35..41
             0: IDENT@35..41 "static" [] []
@@ -270,7 +244,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@45..45
             2: JS_STATEMENT_LIST@45..45
             3: R_CURLY@45..46 "}" [] []
-        2: JS_GETTER_CLASS_MEMBER@46..67
+        2: JS_UNKNOWN_MEMBER@46..67
           0: STATIC_KW@46..55 "static" [Whitespace("\n\t")] [Whitespace(" ")]
           1: GET_KW@55..59 "get" [] [Whitespace(" ")]
           2: JS_LITERAL_MEMBER_NAME@59..62
@@ -283,7 +257,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@66..66
             2: JS_STATEMENT_LIST@66..66
             3: R_CURLY@66..67 "}" [] []
-        3: JS_GETTER_CLASS_MEMBER@67..83
+        3: JS_UNKNOWN_MEMBER@67..83
           0: GET_KW@67..73 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@73..78
             0: JS_STRING_LITERAL@73..78 "\"baz\"" [] []
@@ -295,7 +269,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@82..82
             2: JS_STATEMENT_LIST@82..82
             3: R_CURLY@82..83 "}" [] []
-        4: JS_GETTER_CLASS_MEMBER@83..105
+        4: JS_UNKNOWN_MEMBER@83..105
           0: GET_KW@83..89 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_COMPUTED_MEMBER_NAME@89..100
             0: L_BRACK@89..90 "[" [] []
@@ -314,7 +288,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@104..104
             2: JS_STATEMENT_LIST@104..104
             3: R_CURLY@104..105 "}" [] []
-        5: JS_GETTER_CLASS_MEMBER@105..117
+        5: JS_UNKNOWN_MEMBER@105..117
           0: GET_KW@105..111 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@111..112
             0: JS_NUMBER_LITERAL@111..112 "5" [] []
@@ -326,7 +300,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@116..116
             2: JS_STATEMENT_LIST@116..116
             3: R_CURLY@116..117 "}" [] []
-        6: JS_GETTER_CLASS_MEMBER@117..136
+        6: JS_UNKNOWN_MEMBER@117..136
           0: GET_KW@117..123 "get" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_PRIVATE_CLASS_MEMBER_NAME@123..131
             0: HASH@123..124 "#" [] []
@@ -340,13 +314,13 @@ JsModule {
             2: JS_STATEMENT_LIST@135..135
             3: R_CURLY@135..136 "}" [] []
       4: R_CURLY@136..138 "}" [Whitespace("\n")] []
-    1: JS_CLASS_DECLARATION@138..202
+    1: JS_UNKNOWN_STATEMENT@138..202
       0: CLASS_KW@138..145 "class" [Whitespace("\n")] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@145..156
         0: IDENT@145..156 "NotGetters" [] [Whitespace(" ")]
       2: L_CURLY@156..157 "{" [] []
       3: JS_CLASS_MEMBER_LIST@157..200
-        0: JS_METHOD_CLASS_MEMBER@157..167
+        0: JS_UNKNOWN_MEMBER@157..167
           0: JS_LITERAL_MEMBER_NAME@157..162
             0: IDENT@157..162 "get" [Whitespace("\n\t")] []
           1: JS_PARAMETERS@162..165
@@ -359,7 +333,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@166..166
             2: JS_STATEMENT_LIST@166..166
             3: R_CURLY@166..167 "}" [] []
-        1: JS_METHOD_CLASS_MEMBER@167..183
+        1: JS_UNKNOWN_MEMBER@167..183
           0: ASYNC_KW@167..175 "async" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@175..178
             0: IDENT@175..178 "get" [] []
@@ -373,7 +347,7 @@ JsModule {
             1: JS_DIRECTIVE_LIST@182..182
             2: JS_STATEMENT_LIST@182..182
             3: R_CURLY@182..183 "}" [] []
-        2: JS_METHOD_CLASS_MEMBER@183..200
+        2: JS_UNKNOWN_MEMBER@183..200
           0: STATIC_KW@183..192 "static" [Whitespace("\n\t")] [Whitespace(" ")]
           1: JS_LITERAL_MEMBER_NAME@192..195
             0: IDENT@192..195 "get" [] []

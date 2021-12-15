@@ -6,7 +6,7 @@ use crate::api::TriviaPiece;
 use crate::green::Slot;
 use crate::{
 	green::GreenElementRef, GreenNode, GreenNodeData, GreenToken, GreenTokenData, NodeOrToken,
-	SyntaxKind,
+	RawKind,
 };
 
 use super::element::GreenElement;
@@ -42,7 +42,7 @@ pub struct NodeCache {
 	tokens: HashMap<NoHash<GreenToken>, ()>,
 }
 
-fn token_hash_of(kind: SyntaxKind, text: &str) -> u64 {
+fn token_hash_of(kind: RawKind, text: &str) -> u64 {
 	let mut h = FxHasher::default();
 	kind.hash(&mut h);
 	text.hash(&mut h);
@@ -88,7 +88,7 @@ impl NodeCache {
 
 	pub(crate) fn node(
 		&mut self,
-		kind: SyntaxKind,
+		kind: RawKind,
 		// u64 is the hash of the slot
 		slots: &mut Vec<(u64, Option<GreenElement>)>,
 		first_child: usize,
@@ -153,13 +153,13 @@ impl NodeCache {
 		(hash, node)
 	}
 
-	pub(crate) fn token(&mut self, kind: SyntaxKind, text: &str) -> (u64, GreenToken) {
+	pub(crate) fn token(&mut self, kind: RawKind, text: &str) -> (u64, GreenToken) {
 		self.token_with_trivia(kind, text, Vec::new(), Vec::new())
 	}
 
 	pub(crate) fn token_with_trivia(
 		&mut self,
-		kind: SyntaxKind,
+		kind: RawKind,
 		text: &str,
 		leading: Vec<TriviaPiece>,
 		trailing: Vec<TriviaPiece>,
@@ -188,7 +188,7 @@ impl NodeCache {
 
 #[test]
 fn green_token_hash() {
-	let kind = SyntaxKind(0);
+	let kind = RawKind(0);
 	let text = " let ";
 	let t1 = GreenToken::with_trivia(
 		kind,

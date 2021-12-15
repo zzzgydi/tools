@@ -173,6 +173,7 @@ pub const KINDS_SRC: KindsSrc = KindsSrc {
 		"JS_MODULE",
 		"JS_MODULE_ITEM_LIST",
 		"JS_SCRIPT",
+		"JS_EXPRESSION_SNIPPED",
 		"JS_DIRECTIVE",
 		"JS_DIRECTIVE_LIST",
 		"ERROR",
@@ -415,6 +416,7 @@ pub const KINDS_SRC: KindsSrc = KindsSrc {
 		"BOOLEAN",
 		"BIG_INT_VALUE",
 		// unknown nodes
+		"JS_UNKNOWN",
 		"JS_UNKNOWN_EXPRESSION",
 		"JS_UNKNOWN_STATEMENT",
 		"JS_UNKNOWN_MEMBER",
