@@ -61,14 +61,14 @@ JsModule {
 
 0: JS_MODULE@0..67
   0: (empty)
-  1: (empty)
+  1: JS_DIRECTIVE_LIST@0..0
   2: JS_MODULE_ITEM_LIST@0..66
     0: JS_CLASS_DECLARATION@0..12
       0: CLASS_KW@0..6 "class" [] [Whitespace(" ")]
       1: JS_IDENTIFIER_BINDING@6..10
         0: IDENT@6..10 "foo" [] [Whitespace(" ")]
       2: L_CURLY@10..11 "{" [] []
-      3: (empty)
+      3: JS_CLASS_MEMBER_LIST@11..11
       4: R_CURLY@11..12 "}" [] []
     1: JS_CLASS_DECLARATION@12..37
       0: CLASS_KW@12..19 "class" [Whitespace("\n")] [Whitespace(" ")]
@@ -80,7 +80,7 @@ JsModule {
           0: JS_REFERENCE_IDENTIFIER@31..35
             0: IDENT@31..35 "bar" [] [Whitespace(" ")]
       3: L_CURLY@35..36 "{" [] []
-      4: (empty)
+      4: JS_CLASS_MEMBER_LIST@36..36
       5: R_CURLY@36..37 "}" [] []
     2: JS_CLASS_DECLARATION@37..66
       0: CLASS_KW@37..44 "class" [Whitespace("\n")] [Whitespace(" ")]
@@ -96,6 +96,6 @@ JsModule {
           2: JS_NAME@60..64
             0: IDENT@60..64 "bar" [] [Whitespace(" ")]
       3: L_CURLY@64..65 "{" [] []
-      4: (empty)
+      4: JS_CLASS_MEMBER_LIST@65..65
       5: R_CURLY@65..66 "}" [] []
   3: EOF@66..67 "" [Whitespace("\n")] []

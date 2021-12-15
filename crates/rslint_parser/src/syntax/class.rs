@@ -854,7 +854,11 @@ fn parse_constructor_class_member_body(p: &mut Parser, member_marker: Marker) ->
 
 fn parse_constructor_parameter_list(p: &mut Parser) -> ParsedSyntax<CompletedMarker> {
 	let m = p.start();
-	parse_parameters_list(p, parse_constructor_parameter);
+	parse_parameters_list(
+		p,
+		parse_constructor_parameter,
+		JS_CONSTRUCTOR_PARAMETER_LIST,
+	);
 	Present(m.complete(p, JS_CONSTRUCTOR_PARAMETERS))
 }
 
